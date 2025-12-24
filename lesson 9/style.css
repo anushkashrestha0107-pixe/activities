@@ -1,21 +1,21 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: blue;
-    color: azure;
+    background-color:white;
+    color: black;
 }
 
   h1 {
-        color: cyan;
+        color:rgb(16, 124, 160);
 }
 
 /* Attribute Selector */
 a {
-    color: darkblue;
+    color: rgb(43, 5, 16);
     text-decoration: none;
 }
 
 a:hover{
-    color: aqua;
+    color:rgb(31, 6, 60);
 }
 
 /* Child Selector */
@@ -25,24 +25,24 @@ ul > li {
 
 /* Sibling Selector */
 h1 + p {
-    background-color: cyan;
+    background-color:palegreen;
     padding: 10px;
     border-radius:  5px;
 }
 
 /* :hover Pseudo-classm*/
 ul li:hover {
-    color: dodgerblue;
+    color: rgb(58, 89, 19)
 }
 
 /* :nth-child(n) Pseudo-class */
 ul li:nth-child(3) {
-    background-color: deepskyblue;
+    background-color:skyblue;
 }
 
 /* :not(selector) Pseudo-class */
 p:not(:first-of-type) {
-    text-decoration: underline;
+    text-decoration: rgb(114, 32, 32);
 }
 
 /* ::before Pseuda-element */
@@ -58,5 +58,5 @@ a::after {
 /* ::first-letter Pseudo-element */
 p::first-letter{
     font-size: 200%;
-    color: cornflowerblue;
+    color: rgb(70, 5, 5);
 }
