@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: blue;
+    color: azure;
+}
+
+  h1 {
+        color: cyan;
+}
+
+/* Attribute Selector */
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+a:hover{
+    color: aqua;
+}
+
+/* Child Selector */
+ul > li {
+    font-weight: bold;
+}
+
+/* Sibling Selector */
+h1 + p {
+    background-color: cyan;
+    padding: 10px;
+    border-radius:  5px;
+}
+
+/* :hover Pseudo-classm*/
+ul li:hover {
+    color: dodgerblue;
+}
+
+/* :nth-child(n) Pseudo-class */
+ul li:nth-child(3) {
+    background-color: deepskyblue;
+}
+
+/* :not(selector) Pseudo-class */
+p:not(:first-of-type) {
+    text-decoration: underline;
+}
+
+/* ::before Pseuda-element */
+ul li::before {
+    content:"*";
+}
+
+/* ::afterPseudo-element */
+a::after {
+    content:"*";
+}
+
+/* ::first-letter Pseudo-element */
+p::first-letter{
+    font-size: 200%;
+    color: cornflowerblue;
+}
