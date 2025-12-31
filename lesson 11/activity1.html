@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CSS Positioning</title>
+
+<style>
+
+div {
+
+border: 3px solid saddlebrown;
+
+margin: 10px;
+
+padding: 10px;
+
+}
+
+/* Relative */
+
+div.relative {
+
+position: relative;
+
+left: 100px;
+
+border: 3px solid green;
+
+}
+
+/* Absolute */
+
+div.absolute {
+
+position: absolute;
+
+top: 250px;
+
+left: 50px;
+
+border: 3px solid blue;
+
+}
+
+/* Fixed */
+
+div.fixed {
+
+position: fixed;
+
+top: 0;
+
+right: 20px;
+
+width: 300px;
+
+background: lightyellow;
+
+border: 3px solid red;
+
+}
+
+/* Sticky */
+
+div.sticky {
+
+position: sticky;
+
+top: 0;
+
+background: lightblue;
+
+border: 3px solid purple;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>POSITIONING</h2>
+
+<div>
+
+Static position (default)
+
+</div>
+
+<div class="sticky">
+
+Sticky position
+
+</div>
+
+<div class="relative">
+
+Relative position
+
+</div>
+
+<div class="absolute">
+
+Absolute position
+
+</div>
+
+<div class="fixed">
+
+Fixed position
+
+</div>
+
+<!-- Extra content to enable scrolling -->
+
+<p style="height:1000px;">Scroll down to see sticky effect</p>
+
+</body>
+
+</html>
