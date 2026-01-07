@@ -1,21 +1,21 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image:url(milky-way-6657951_1280.jpg);
+    background-image:url(space-background-realistic-starry-night-cosmos-shining-stars-milky-way-stardust-color-galaxy.jpg);
     color: rgb(0, 0, 0);
 }
 
   h1 {
-        color: rgb(24, 24, 24);
+        color: rgb(0, 0, 0);
 }
 
 /* Attribute Selector */
 a {
-    color: rgb(43, 5, 16);
+    color: rgb(233, 233, 233);
     text-decoration: none;
 }
 
 a:hover{
-    color: aqua;
+    color: rgb(132, 255, 0);
 }
 
 /* Child Selector */
