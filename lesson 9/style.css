@@ -1,11 +1,11 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color:white;
-    color: black;
+    background-image:url(milky-way-6657951_1280.jpg);
+    color: rgb(0, 0, 0);
 }
 
   h1 {
-        color:rgb(16, 124, 160);
+        color: rgb(24, 24, 24);
 }
 
 /* Attribute Selector */
@@ -15,7 +15,7 @@ a {
 }
 
 a:hover{
-    color:rgb(31, 6, 60);
+    color: aqua;
 }
 
 /* Child Selector */
@@ -25,38 +25,39 @@ ul > li {
 
 /* Sibling Selector */
 h1 + p {
-    background-color:palegreen;
+    background-color: rgb(137, 198, 233);
     padding: 10px;
     border-radius:  5px;
 }
 
-/* :hover Pseudo-classm*/
+/* :hover Pseudo-class */
 ul li:hover {
-    color: rgb(58, 89, 19)
+    color: rgba(6, 44, 69, 0.551)
 }
 
 /* :nth-child(n) Pseudo-class */
 ul li:nth-child(3) {
-    background-color:skyblue;
+    background-color: deepskyblue;
 }
 
 /* :not(selector) Pseudo-class */
 p:not(:first-of-type) {
-    text-decoration: rgb(114, 32, 32);
+    text-decoration: underline;
+}
+
+/* ::not(selector) Pseuda-class */
+ul li::before{
+    content: "🚀";
 }
 
 /* ::before Pseuda-element */
-ul li::before {
-    content:"*";
-}
-
-/* ::afterPseudo-element */
-a::after {
-    content:"*";
-}
+::-webkit-search-decoration::after {
+    content: "☄️";
+    color: blue;
+}|
 
 /* ::first-letter Pseudo-element */
 p::first-letter{
     font-size: 200%;
-    color: rgb(70, 5, 5);
+    color: cornflowerblue;
 }
