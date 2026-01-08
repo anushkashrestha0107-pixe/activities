@@ -3,21 +3,21 @@
      font-weight: 500;
 }
 h3{
-    color: blue;
+    color: rgb(114, 114, 231);
 }
 
 h4{
-    color: palevioletred;
+    color: rgb(239, 158, 185);
 }
 
     .myclass {
-        color: darkorange;
+        color: rgb(223, 187, 142);
     }
 
     #myid{
-        color: mediumpurple;
+        color: rgb(151, 141, 170);
     }
 
     h5,p{
-        color: maroon;
+        color: rgb(223, 102, 102);
     }
