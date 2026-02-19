@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Riya</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let count = 0;
+while (count < 5) {
+  // 'randomNumber' has block scope (let) and is new each time
+  let randomNumber = Math.floor(Math.random() * 100) + 1; 
+  console.log(randomNumber);
+  document.getElementById("output").innerHTML += randomNumber + "<br>";
+  count++;
+}
+    </script>
+</body>
+</html>
