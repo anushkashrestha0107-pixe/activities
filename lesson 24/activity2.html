@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title> Conditions in JavaScript</title>
 </head>
 <body>
-    
+    <p> Click the button to get a time-based greeting!</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="hour"></p>
+    <p id="greet"></p>
+    <script>        
+        function myFunction() {
+            var greeting;
+            var time = new Date().getHours();
+
+            if (time < 10) {
+                greeting = "Good morning";
+            } else if (time < 20) {
+                greeting = "Good day";
+            } else {
+                greeting = "Good evening";
+            }
+            document.getElementById("hour").innerHTML = "The current hour is: " + time;
+            document.getElementById("greet").innerHTML = greeting;
+        }
+    </script>
 </body>
 </html>
