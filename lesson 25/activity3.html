@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Static methods</title>
+</head>
+<body>
+    <h2>Static methods</h2>
+    <p>Static methods are defined on the class itself, not
+on instances of the class. They are often used for utility functions that are related to the class but do not require access to instance properties.</p>
+    <p>To define a static method, use the "static" keyword before the method name. Static methods can be called directly on the class without creating an instance.</p>
+    <p id="hello"></p>
+    <p id="hi"></p>
+    <p id="greet"></p>
+    <script>
+        class Student {
+            constructor(name) {
+                this.studentname = name;
+            }
+            static hello(name) {// Static method
+                return "Hello!!" + name + "!";
+            }
+            static greet(x) {// Static method   
+                return "Welcome, " + x.studentname;
+            }
+            hi() {
+                return "Hi, I am " + this.studentname;
+            }
+        }
+ myname= new Student("Riya");
+ // Call 'hello()' on the class student, not on the object myname because it is a static method and it cannot access object
+    document.getElementById("hello").innerHTML = Student.hello("Riya");
+    // Call 'hi()' on the object myname, 
+    document.getElementById("hi").innerHTML = myname.hi();
+    // Call 'greet()' can access the object since it is a static method and it can access the object properties
+    document.getElementById("greet").innerHTML = Student.greet(myname);
+
+           </script>
+    
+</body>
+</html>
