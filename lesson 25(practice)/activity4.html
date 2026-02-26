@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance</title>
+</head>
+<body>
+    <h2>Class Inheritance</h2>
+    <p> Use the "extends" keyword to inherit all methods from another class.</p>
+    <p> Use the "super" method to call the parent's constructor function.</p>
+    <p id="details"></p>
+    <style>
+body {
+    background-color: rgb(117, 112, 112);
+}
+h2 {
+    color: rgb(46, 21, 21);
+    text-align: center;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+    
+    img {
+        display: block;     
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+        
+    </style>
+    <script>
+        class city
+        {
+            constructor(state) {
+                this.location = state;
+            }
+            present() {
+                return 'I live in ' + this.location;
+            }
+        }
+        class Model extends city
+        {
+            constructor(state, city) {
+                super(state);
+                this.city = city;
+            }
+            show() {
+                return this.present() + ', My favourite city is ' + this.city;
+            }
+        }
+        let mylocation = new Model("Kathmandu", "Dhading");
+        document.getElementById("details").innerHTML = mylocation.show();
+    </script>
+</body>
+</html>
