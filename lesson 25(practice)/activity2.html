@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance</title>
+</head>
+<body>
+    <h2>Class Inheritance</h2>
+    <p> Use the "extends" keyword to inherit all methods from another class.</p>
+    <p> Use the "super" method to call the parent's constructor function.</p>
+    <p id="details"></p>
+    <script>
+        class dress
+        {
+            constructor(brand) {
+                this.dress = brand;
+            }
+            present() {
+                return 'I have a ' + this.dress;
+            }
+        }
+        class Model extends dress
+        {
+            constructor(brand, mod) {
+                super(brand);
+                this.model = mod;
+            }
+            show() {
+                return this.present() + ', it is a ' + this.model;
+            }
+        }
+        let mydress = new Model("Zara", "Summer Dress");
+        document.getElementById("details").innerHTML = mydress.show();
+    </script>
+</body>
+</html>

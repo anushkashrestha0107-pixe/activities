@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Methods</title>
+</head>
+<body>
+    <h2>Static Methods</h2>
+    <p>Static methods are defined with the static keyword.</p>
+    <p>They are called without creating an instance of the class.</p>
+    <p id="Namaste!!"></p>
+    <p id="Welcome to my website"></p>
+    <p id="Thank you for visiting my website"></p>
+     <script>
+        class Student {
+            constructor(name) {
+                this.studentname = name;
+            }
+            static Namaste(name) {// Static method
+                return "Namaste!! " + name + "!";
+            }
+            static greet(x) {// Static method   
+                return "Welcome to my website, " + x.studentname;
+            }
+            hi() {
+                return "Thank you for visiting my website, " + this.studentname;
+            }
+        }
+        document.getElementById("Namaste!!").innerHTML = Student.Namaste("Anushka");
+        document.getElementById("Welcome to my website").innerHTML = Student.greet(new Student("Anushka"));
+        document.getElementById("Thank you for visiting my website").innerHTML = new Student("Anushka").hi();
+    
+    </script>
+</body>
+</html>

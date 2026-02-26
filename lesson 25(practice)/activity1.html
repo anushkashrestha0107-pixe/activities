@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Class</title>
+</head>
+<body>
+    <h2>Welcome to JavaScript Class</h2>
+    <p>In this lesson, we will learn about JavaScript classes, inheritance, and static methods.</p>
+    <p>Click on the links below to explore each topic:</p>
+    <ul>
+        <li><a href="activity1.html">JavaScript Class</a></li>
+        <li><a href="activity2.html">Class Inheritance</a></li>
+        <li><a href="activity3.html">Static Methods</a></li>    
+    </ul>
+    <p id="Student1"></p>
+    <p id="Student2"></p>
+    <script>
+        class Student {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year    ;
+            }
+            age() {
+                let date = new Date();
+                return date.getFullYear() - this.year;
+            }
+        }
+        const student1 = new Student("Anu", 2011);
+        document.getElementById("Student1").innerHTML = 
+        "My name is " + student1.name + " and I was born in " + student1.year + ". My age is " + student1.age();
+        const student2 = new Student("Savya", 2012);
+        document.getElementById("Student2").innerHTML = 
+        "My name is " + student2.name + " and I was born in " + student2.year + ".My age is " + student2.age(); 
+    </script>
+    
+</body>
+</html>
