@@ -7,18 +7,26 @@
 </head>
 <body>
     <h2>Evaluate Variables</h2>
-
     <p>Click the button below to evaluate the variables.</p>
 
-    <button onclick="evaluate()">Evaluate</button>
-    <p id="result"></p>
-    <script>
-        function evaluate() {
-            var x = 5;
-            var y = 10;
-            var z = x + y;
-            document.getElementById("result").innerHTML = "The sum of x and y is: " + z;
-        }
-    </script>
+        <button onclick="myFunction()">Try it</button>
+
+        <p id="result"></p>
+
+<script>
+function myFunction() {
+  var x = 10;
+  var y = 20;
+
+  var a = eval("x + y") + "<br>" ;
+  var b = eval("2 * 2") + "<br>" ;
+    var c = eval("y - x") + "<br>" ;
+
+    var res = a + b + c;
+
+  document.getElementById("result").innerHTML =res;
+}
+</script>
+    
 </body>
 </html>
