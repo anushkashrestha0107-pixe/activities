@@ -7,32 +7,32 @@
 </head>
 <body>
     <h2>Class Inheritance</h2>
-    <p> Use the "extends" keyword to inherit all methods from another class.</p>
-    <p> Use the "super" method to call the parent's constructor function.</p>
+    <p> A snack is a small amount of food, typically eaten between main meals, designed to satisfy hunger quickly. </p>
+    <p> There are 3 types of snacks :  Confectionery, savory snacks, and healthy snack </p>
     <p id="details"></p>
     
     <script>
-        class Car
+        class snacks
         {
             constructor(brand) {
-                this.carname = brand;
+                this.brand =     brand;
             }
             present() {
-                return 'I have a ' + this.carname;
+                return 'The best snack for me is ' + this.brand;
             }
         }
-        class Model extends Car
+        class Model extends snacks
         {
             constructor(brand, mod) {
                 super(brand);
                 this.model = mod;
             }
             show() {
-                return this.present() + ', it is a ' + this.model;
+                return this.present() + ', but i like ' + this.model;
             }
         }
-        let mycar = new Model("Ford", "Mustang");
-        document.getElementById("details").innerHTML = mycar.show();    
+        let mysnack = new Model("Nuts", "Cookies");
+        document.getElementById("details").innerHTML = mysnack.show();    
     </script>
     
 </body>
