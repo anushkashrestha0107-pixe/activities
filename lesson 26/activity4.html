@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Helping Carol</title>
+</head>
+<body>
+    <h2> Ascending and Descending Order </h2>
+
+     <button onclick="ascending()">Ascending order</button>
+    <button onclick="descending()">Descending order</button>
+
+    <p id="result"></p>
+    <script>
+      var points = [100, 88, 115, 511, 99, 10];
+
+      document.getElementById("result").innerHTML = points;
+
+        function ascending() {
+            points.sort(function(a, b){
+                return a - b});
+            document.getElementById("result").innerHTML = points;
+        }
+        function descending() {
+            points.sort(function(a, b){
+                return b - a});
+            document.getElementById("result").innerHTML = points;
+        }
+    </script>
+
+    <h3> Map an array</h3>
+ <p id="product_value"></p>
+    <script>
+        var numbers = [20, 11, 14, 12];
+
+        function myFunction(num) {
+            return num * 13;
+        }
+
+        var newarray = numbers.map(myFunction);
+        
+        document.getElementById("product_value").innerHTML = newarray;
+    </script>
+</body>
+</html>
