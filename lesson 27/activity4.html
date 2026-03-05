@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch Example</title>
+</head>
+<style>
+
+    font-family: Arial, sans-serif;
+
+    
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+       
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: rgb(5, 23, 33);
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    
+         
+    }
+<h3> {
+    color: rgb(5, 23, 33);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+    
+    
+</style>
+<body>
+    <h2>Try Catch Example</h2>
+
+    <button onclick="checkError()">Click me to try catch</button>
+    <p id="result"></p>
+    <script>
+        function checkError() {
+            try {
+                var x = 10;
+                var y = 0;
+
+                if (y == 0) {
+                    throw "Cannot divide by zero!";
+                }
+                var result = x / y;
+                document.getElementById("result").innerHTML =  result;
+            }
+               catch (error) {
+                    document.getElementById("result").innerHTML = "Error: " + error;
+                }
+                finally{
+                    console.log("Execution completed.");
+                }
+            }
+                </script>
+                <h3> Congratulations  u learnt to catch the error!!</h3>
+               
+</body>
+</html>
