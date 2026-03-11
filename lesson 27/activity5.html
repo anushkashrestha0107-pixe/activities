@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Try Catch Example</title>
+    <title>Hepling Tinu</title>
 </head>
 <style>
 
     
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
+    .btn{
+        border: none;
+        border-radius: 2px;
+        background-color: #25140a;
+        color: #ff6666;
+        box-shadow: 0 5px 8px 2px #cc5454;
+        transition: 0.3s all ease-in-out;
+        transition: 0.5s box-shadow ease-in-out;
         cursor: pointer;
-       
+        padding: 20px 30px;
+        font-size: 20px;
+
     }
+
+    .btn:hover {
+        background-color: #453b3b;
+        color: #371602;
+        box-shadow: 0 0 12px 12px #000000;
+    }
+       
+   
     #result {
         margin-top: 20px;
         font-size: 18px;
@@ -32,18 +47,19 @@ h3 {
     
 </style>
 <body>
-    <h2>Try Catch Example</h2>
+    <h2>Helping Tinu</h2>
+    
 
     <button onclick="checkError()">Click me to try catch</button>
     <p id="result"></p>
     <script>
         function checkError() {
             try {
-                var x = 10;
+                var x = 10000000000;
                 var y = 0;
 
                 if (y == 0) {
-                    throw "Cannot divide by zero!";
+                    throw "Something went wrong. Try checking your input values!";
                 }
                 var result = x / y;
                 document.getElementById("result").innerHTML =  result;
@@ -55,8 +71,9 @@ h3 {
                     console.log("Execution completed.");
                 }
             }
+           
                 </script>
-                <h3> Congratulations  u learnt to catch the error!!</h3>
-               
+             <h3>Congratulations! You learnt to catch the error!!</h3>
+
 </body>
 </html>
