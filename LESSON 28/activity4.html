@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback function</title>
+</head>
+<style>
+    body {
+        font-family: Patrick Hand, cursive;
+        margin: 20px;
+    }
+    h2 {
+        color: #333;
+    }
+    p {
+        font-size: 16px;
+        color: #555;
+    }
+</style>
+
+<body>
+    <h2>Callback function</h2>
+    <p> This example demonstrates the use of callback functions in JavaScript.</p>
+
+    <p id="result"></p>
+
+    <script>
+        function myDisplayer(value) {
+            document.getElementById("result").innerHTML = value ;
+        }
+
+        function myDiaplayer (value) {
+           document.getElementById("result").innerHTML = value ;
+        }
+        function myCalculation(num1, num2, callback) {
+            var sum = num1 + num2;
+            callback(sum);
+        }
+
+        myCalculation(5, 5, myDisplayer);
+    </script>
+    
+</body>
+</html>
