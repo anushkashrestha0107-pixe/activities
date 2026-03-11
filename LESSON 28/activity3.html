@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Promises</title>
+</head>
+<style>
+    body {
+        font-family: Patrick Hand, cursive;
+        margin: 20px;
+    }
+    h2 {
+        color: #4d0f0f;
+     text-align: center;
+     font-size: 30px
+    ;
+    }
+    #demo {
+        font-size: 30px;
+        color: #2d2323;
+    }
+</style>
+<body>
+    <h2>JS Promises</h2>
+    
+    <p id="demo"></p>
+
+    <script>
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        function add(a, b) {
+           var sum = a + b;
+           myDisplayer(sum);
+        }
+        let myPromise = new Promise(function(myResolve, myReject) {
+            let x = 0; // some code (try to change x to 5)
+
+            if (x == 0) {
+                myResolve("OK"); // when successful
+            } else {
+                myReject("Error"); // when error
+            }
+        });
+
+        // consuming code (Must wait for a fulfilled Promise)
+        myPromise.then(
+            function(value) {add(5, 5);},// code is successful
+            function(error) {myDisplayer(error);}// code is error
+        );
+    </script>
+    
+</body>
+</html>
