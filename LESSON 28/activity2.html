@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h2 {
+        color: #4d0f0f;
+    }
+    #result {
+        font-size: 24px;
+        color: #2d2323;
+    }
+</style>
+<body>
+    <h2>JS async / await</h2>
+
+    <h1 id="result"></h1>
+
+    <script>
+        async function add(a, b) {
+                let response = await a + b;
+                display(response);
+        }
+        function display(some) {
+                document.getElementById("result").innerHTML = some;
+        }
+        add(5, 20);
+    </script>
+</body>
+</html>
