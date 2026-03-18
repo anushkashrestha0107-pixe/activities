@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #f94242;
+}
+
+/* Full width navbar */
+.navbar {
+ background:#ffc1aa;
+ border-top: 2px solid #ff1f1f;
+ padding: 12px 40px !important;    
+}
+
+/* Logo */
+.brand-logo {   
+ font-size: 24px;
+ font-weight: 700;
+ color: #442929;
+ text-decoration: none;
+ height: 24px;
+ width: auto;
+}
+
+/* Links */
+.navigation-link {
+ color: #6d3838 !important;
+ text-decoration: none;
+ font-size: 18px;
+ margin-left: 20px;
+ font-weight: 500;
+}
+
+.navigation-link:hover {
+ color: #1f0c0c !important;
+}
+
