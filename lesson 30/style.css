@@ -1,13 +1,20 @@
 body{
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: #f94242;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #635f5f;
 }
+
+h5 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: #8b0000;
+}   
 
 /* Full width navbar */
 .navbar {
  background:#ffc1aa;
- border-top: 2px solid #ff1f1f;
+ border-top: 2px solid #caa3a3;
  padding: 12px 40px !important;    
 }
 
@@ -15,7 +22,7 @@ body{
 .brand-logo {   
  font-size: 24px;
  font-weight: 700;
- color: #442929;
+ color: #000000;
  text-decoration: none;
  height: 24px;
  width: auto;
@@ -23,7 +30,7 @@ body{
 
 /* Links */
 .navigation-link {
- color: #6d3838 !important;
+ color: #000000 !important;
  text-decoration: none;
  font-size: 18px;
  margin-left: 20px;
@@ -31,6 +38,6 @@ body{
 }
 
 .navigation-link:hover {
- color: #1f0c0c !important;
+ color: #ffffff !important;
 }
 
