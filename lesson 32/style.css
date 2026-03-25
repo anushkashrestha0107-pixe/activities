@@ -1,0 +1,63 @@
+/* Add your custom styles here */
+
+/* Section background like the image */
+#social-media {
+    background: #f4f3f3;
+    border: #000000 solid 2px;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Heading Styles */
+m-heading {
+    text-align: center;
+    font-size: 36px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Button cards */
+.btn-outline-warning {
+   text-align: left;
+   margin-right: 18px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    border: 2px solid #331a1a;
+    border-radius: 5px;
+    text-decoration: none;
+    background: transparent;
+}
+
+/* Keep spacing like the image */
+.row.pt-5 {
+   gap: 18px;
+}
+
+
+/* Text inside button cards */
+.media_link h3 {
+    font-size: 24px;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Icons */
+.media_link i {
+    font-size: 24px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+/* Email button filled (already has bg-warning in HTML) */
+.media_link .btn-warning {
+    background-color: #ffc107;
+    color: #000000;
+    border: 2px solid #331a1a;
+}
