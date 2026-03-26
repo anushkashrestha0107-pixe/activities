@@ -1,63 +1,49 @@
-/* Add your custom styles here */
+/* style.css */
 
 /* Section background like the image */
-#social-media {
-    background: #f4f3f3;
-    border: #000000 solid 2px;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
+#social-media{
+  background: #9698a1;          /* dark bluish */
+  padding: 30px 0;
+  margin: 50px 0;
 }
 
-/* Heading Styles */
-m-heading {
-    text-align: center;
-    font-size: 36px;
-    color: #000000;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: 700;
+/* Heading style */
+.m-heading{
+  font: "Dancing Script", bold, cursive;
+  font-weight: 700;
+  margin-top: 6px;
 }
 
 /* Button cards */
-.btn-outline-warning {
-   text-align: left;
-   margin-right: 18px;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: 500;
-    color: #000000;
-    border: 2px solid #331a1a;
-    border-radius: 5px;
-    text-decoration: none;
-    background: transparent;
+.media_link{
+  border: 2px solid #ddab15;    /* yellow border */
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-right: 18px;
+  background: transparent;
+  text-align: left;
 }
 
-/* Keep spacing like the image */
-.row.pt-5 {
-   gap: 18px;
+/* Keep spacing like the screenshot */
+.row.pt-5{
+  gap: 18px;
 }
 
-
-/* Text inside button cards */
-.media_link h3 {
-    font-size: 24px;
-    color: #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: 700;
+/* Text inside the buttons */
+.media_link h3{
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* Icons */
-.media_link i {
-    font-size: 24px;
-    color: #000000;
-    margin-right: 10px;
+.media_link i{
+  font-size: 22px;
+  font: bold , sans-serif;
 }
 
 /* Email button filled (already has bg-warning in HTML) */
-.media_link .btn-warning {
-    background-color: #ffc107;
-    color: #000000;
-    border: 2px solid #331a1a;
+.media_link.bg-warning{
+  border: 2px solid #52560b;
 }
+
+
