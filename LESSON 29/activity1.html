@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+        alert("Please fill out the field");
+        return false;
+    }
+}
+</script>
 </head>
 <body>
-  <script>
-    function validateForm(){
-        var x = document.forms["myForm"]["fname"].value;
-        if(x == ""){
-            alert("Name must be filled out");
-            return false;
-        }
-    }
-  </script>  
-</body>
-<form name="myForm"onsubmit="return validateForm()">
-    Name: <input type="text" name="fname">
-    <input type="submit" value="Submit">
+
+<form name="myForm" onsubmit="return validateForm()">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
 </form>
 
+<p id="message"></p>
+
+</body>
 </html>
