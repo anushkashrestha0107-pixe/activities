@@ -1,55 +1,149 @@
-body{
-    font-family: 'Open Sans' , sans-serif;
-    background-color: black;
-}
-#container{
-    width: 1000px;
-    height: 550px;
-    background: linear-gradient(rgb(222, 182, 182)), url(img1.jpg);
-margin: 20px auto;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Barlow TT", sans-serif;
 }
 
-#calculator{
+/* Themes Variables */
+:root {
+    --bg: linear-gradient(90deg, #a9c3cc, #f9f9f9);
+    --card: #f9f9f9;
+    --text: #6f7780;
+    --btn: #ff6f61;
+}
+
+body.light {
+    background: linear-gradient(90deg, #a9c3cc, #f9f9f9);
+    --card: #f9f9f9;
+    --text: #6f7780;
+    --btn: #ff6f61;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    transition: 0.4s;
+}
+
+/* Calculator */
+.calculator {
     width: 320px;
-    height: 520px;
-    background-color: bisque;
-    margin: 0 auto;
-    top: 20px;
-    position: relative;
-    border-radius: 5px;
-    box-shadow: 4px 8px 0 rgba(0, 0, 0, 0.2), 6px 20px 0 rgba(22, 7, 7, 0.2)
+    padding: 20px;
+    border-radius: 25px;
+    background: var(--card);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
 }
-#result{
+
+/* Display */
+.display {
     height: 120px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    background: #ccc;
 }
 
-#keyboard{
-    height: 400px;
+#history{
+    text-align: right;
+    color: #6f7780;
+    font-size: .8rem;
 }
 
-.operator, .number, .empty{
-    width: 50px;
-    height: 50px;
-    margin: 15px;
-    float: left;
-    border-radius:  50%;
-    border-width: 0;
-   font-weight: bold;
-   font-size: 15px;
+#output{
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
 }
 
-.number, .empty{
-    background-color: rgb(125, 125, 124);
+/* Grid */
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
-.number, .operator{
+/* Buttons */
+button {
+    height: 60px;
+    border-radius: 15px;
+}
+
+/* Numbers */
+.number {
+    background: var(--btn);
+    color: #fff;
+}
+
+/* Operators */
+.operator {
+    background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+    color: #fff;
+}
+
+/* Equal Button */
+#equal {
+    background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+}
+
+/* Hover Effects */
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Click Effects */
+button:active { 
+    transform: scale(0.95);
+}
+
+/* Ripple Effect */
+button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transition: 0.4s;
+}
+
+/* Empty */
+.empty{
+    background:transparent;
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+    #calculator {
+        width: 95%;
+    }
+    button{
+        height: 55px;
+        font-size: 16px;
+    }
+}
+
+/* Toggle Button Style */
+    .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-}
-
-.operator.active, .number.active{
-    font-size: 13px;
-}
-
-.operator:focus, .number:focus, .empty:focus{
-    outline: 0;
-}
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    }   
