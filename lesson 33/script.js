@@ -1,4 +1,4 @@
-     function getHistory() {
+    function getHistory() {
     return document.getElementById("history-value").innerText;
 }
 
@@ -11,17 +11,23 @@ function getOutput() {
 }
 
 function printOutput(num) {
+    let outputEl = document.getElementById("output-value");
+
     if (num == "") {
-        document.getElementById("output-value").innerText = "";
+        outputEl.innerText = "";
     } else {
-        document.getElementById("output-value").innerText = getFormattedNumber(num);
+        outputEl.innerText = getFormattedNumber(num);
     }
+
+    // Add pop animation
+    outputEl.classList.remove("pop");
+    void outputEl.offsetWidth; // restart animation
+    outputEl.classList.add("pop");
 }
 
 function getFormattedNumber(num) {
     if (num == "-") return "";
-    let n = Number(num);
-    return n.toLocaleString("en");
+    return Number(num).toLocaleString("en");
 }
 
 function reverseNumberFormat(num) {
@@ -33,6 +39,10 @@ let operators = document.getElementsByClassName("operator");
 
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function () {
+
+        // Button press animation
+        this.style.transform = "scale(0.92)";
+        setTimeout(() => this.style.transform = "", 100);
 
         if (this.id == "clear") {
             printHistory("");
@@ -70,7 +80,6 @@ for (let i = 0; i < operators.length; i++) {
                         printOutput("Error");
                     }
                 } else {
-                    // Map IDs to actual operators
                     let opMap = {
                         plus: "+",
                         minus: "-",
@@ -79,7 +88,7 @@ for (let i = 0; i < operators.length; i++) {
                         percent: "%"
                     };
 
-                    history = history + (opMap[this.id] || "");
+                    history += opMap[this.id] || "";
                     printHistory(history);
                     printOutput("");
                 }
@@ -93,6 +102,10 @@ let numbers = document.getElementsByClassName("number");
 
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", function () {
+
+        this.style.transform = "scale(0.92)";
+        setTimeout(() => this.style.transform = "", 100);
+
         let output = reverseNumberFormat(getOutput());
 
         if (!isNaN(output)) {
@@ -103,8 +116,7 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 /* THEME TOGGLE */
-let toggle = document.getElementById("theme-toggle");
-
-toggle.addEventListener("change", function () {
-    document.body.classList.toggle("dark");
-});
+document.getElementById("theme-toggle")
+    .addEventListener("change", function () {
+        document.body.classList.toggle("dark");
+    });
