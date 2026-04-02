@@ -3,21 +3,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Barlow TT", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
-/* Themes Variables */
+/* Theme Variables */
 :root {
-    --bg: linear-gradient(90deg, #a9c3cc, #f9f9f9);
-    --card: #f9f9f9;
+    --bg: linear-gradient(90deg, #b1d9e6, #f9f9f9);
+    --card: #650101ba;
     --text: #6f7780;
     --btn: #ff6f61;
 }
 
-body.light {
-    background: linear-gradient(90deg, #a9c3cc, #f9f9f9);
-    --card: #f9f9f9;
-    --text: #6f7780;
+/* Dark Theme */
+body.dark {
+    --bg: linear-gradient(90deg, #1e1e2f, #2c2c3a);
+    --card: #2c2c3a;
+    --text: #ffffff;
     --btn: #ff6f61;
 }
 
@@ -31,34 +32,33 @@ body {
     transition: 0.4s;
 }
 
-/* Calculator */
-.calculator {
+/* Calculator (FIXED ID instead of class) */
+#calculator {
     width: 320px;
     padding: 20px;
     border-radius: 25px;
     background: var(--card);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Display */
-.display {
+#result {
     height: 120px;
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 15px;
-    background: #ccc;
+    background: linear-gradient(135deg, #252323, #440000);
 }
 
-#history{
+#history {
     text-align: right;
-    color: #6f7780;
-    font-size: .8rem;
+    color: #949aa0;
+    font-size: 0.8rem;
 }
 
-#output{
+#output {
     text-align: right;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--text);
 }
@@ -74,54 +74,43 @@ body {
 button {
     height: 60px;
     border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
 }
 
 /* Numbers */
 .number {
-    background: var(--btn);
-    color: #fff;
+    background: #ffffff;
+    color: #333;
 }
 
 /* Operators */
 .operator {
-    background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+    background: linear-gradient(135deg, #252323, #a60000);
     color: #fff;
 }
 
-/* Equal Button */
-#equal {
-    background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+/* Equal Button FIX */
+#equals {
+    background: linear-gradient(135deg, #252323, #a60000);
 }
 
-/* Hover Effects */
+/* Hover */
 button:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* Click Effects */
+/* Click */
 button:active { 
     transform: scale(0.95);
 }
 
-/* Ripple Effect */
-button:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    opacity: 1;
-    transition: 0.4s;
-}
-
 /* Empty */
-.empty{
-    background:transparent;
+.empty {
+    background: transparent;
 }
 
 /* Mobile */
@@ -129,21 +118,61 @@ button:after {
     #calculator {
         width: 95%;
     }
-    button{
+    button {
         height: 55px;
         font-size: 16px;
     }
 }
 
-/* Toggle Button Style */
-    .theme-toggle {
+/* Toggle Switch */
+.theme-wrapper {
     position: absolute;
     top: 20px;
     right: 20px;
-    padding: 10px 14px;
-    border: none;
-    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    }   
+    background: #dba8a8;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background: #000000;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}

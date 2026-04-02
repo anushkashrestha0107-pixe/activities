@@ -1,27 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   
-<script>
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-        alert("Please fill out the field");
-        return false;
-    }
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <div id="container">
+        <div id="calculator">
+            <div id="result">
+                <div id="history"> </p>
+                </div>
+            </div>
+            <div id="keyboard">
+                <button class="operator" id="clear"> C </button>
+                <button class="operator" id="backspace"> CE </button>
+                <button class="operator" id="%"> %</button>
+                <button class="operator" id="/"> &#247; </button>
+ …
+[9:15 PM, 4/1/2026] +91 78010 72760: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Glass Calculator</title>
 
-
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
 </head>
 <body>
 
-<form name="myForm" onsubmit="return validateForm()">
-  Name: <input type="text" name="fname">
-  <input type="submit" value="Submit ">
-</form>
+<!-- Toggle Switch -->
+<div class="theme-wrapper">
+    <span>☀️</span>
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+    </label>
+    <span>🌙</span>
+</div>
 
-<p id="message"></p>
+<div id="container">
+    <div id="calculator">
 
+        <div id="result">
+            <div id="history">
+                <p id="history-value"></p>
+            </div>
+            <div id="output">
+                <p id="output-value">0</p>
+            </div>
+        </div>
+
+        <div id="keyboard">
+            <button class="operator" id="clear">AC</button>
+            <button class="operator" id="backspace">⌫</button>
+            <button class="operator" id="%">%</button>
+            <button class="operator" id="/">÷</button>
+
+            <button class="number" id="7">7</button>
+            <button class="number" id="8">8</button>
+            <button class="number" id="9">9</button>
+            <button class="operator" id="*">×</button>
+
+            <button class="number" id="4">4</button>
+            <button class="number" id="5">5</button>
+            <button class="number" id="6">6</button>
+            <button class="operator" id="-">−</button>
+
+            <button class="number" id="1">1</button>
+            <button class="number" id="2">2</button>
+            <button class="number" id="3">3</button>
+            <button class="operator" id="+">+</button>
+
+            <button class="number" id=".">.</button>
+            <button class="number" id="0">0</button>
+            <button class="empty"></button>
+            <button class="operator" id="=">=</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

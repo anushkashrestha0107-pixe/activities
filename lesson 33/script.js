@@ -1,43 +1,110 @@
-// Theme Toggle
-const toggle = document.getElementById("theme-toggle");
+     function getHistory() {
+    return document.getElementById("history-value").innerText;
+}
 
-toggle.addEventListener("change", () => {
-    document.body.classList.toggle("light");
-});
+function printHistory(num) {
+    document.getElementById("history-value").innerText = num;
+}
 
-// Calculator Logic
-let output = document.getElementById("output-value");
-let history = document.getElementById("history-value");
+function getOutput() {
+    return document.getElementById("output-value").innerText;
+}
 
-let expression = "";
+function printOutput(num) {
+    if (num == "") {
+        document.getElementById("output-value").innerText = "";
+    } else {
+        document.getElementById("output-value").innerText = getFormattedNumber(num);
+    }
+}
 
-document.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        let value = btn.id;
+function getFormattedNumber(num) {
+    if (num == "-") return "";
+    let n = Number(num);
+    return n.toLocaleString("en");
+}
 
-        if (value === "clear") {
-            expression = "";
-            output.innerText = "0";
-            history.innerText = "";
+function reverseNumberFormat(num) {
+    return Number(num.replace(/,/g, ''));
+}
+
+/* OPERATORS */
+let operators = document.getElementsByClassName("operator");
+
+for (let i = 0; i < operators.length; i++) {
+    operators[i].addEventListener("click", function () {
+
+        if (this.id == "clear") {
+            printHistory("");
+            printOutput("");
         }
-        else if (value === "backspace") {
-            expression = expression.slice(0, -1);
-            output.innerText = expression || "0";
-        }
-        else if (value === "=") {
-            try {
-                let result = eval(expression);
-                history.innerText = expression;
-                output.innerText = result;
-                expression = result.toString();
-            } catch {
-                output.innerText = "Error";
-                expression = "";
+
+        else if (this.id == "backspace") {
+            let output = reverseNumberFormat(getOutput()).toString();
+            if (output) {
+                output = output.slice(0, -1);
+                printOutput(output);
             }
         }
-        else if (value) {
-            expression += value;
-            output.innerText = expression;
+
+        else {
+            let output = getOutput();
+            let history = getHistory();
+
+            if (output == "" && history != "") {
+                if (isNaN(history[history.length - 1])) {
+                    history = history.slice(0, -1);
+                }
+            }
+
+            if (output != "" || history != "") {
+                output = output == "" ? "" : reverseNumberFormat(output);
+                history = history + output;
+
+                if (this.id == "equals") {
+                    try {
+                        let result = eval(history);
+                        printOutput(result);
+                        printHistory("");
+                    } catch {
+                        printOutput("Error");
+                    }
+                } else {
+                    // Map IDs to actual operators
+                    let opMap = {
+                        plus: "+",
+                        minus: "-",
+                        multiply: "*",
+                        divide: "/",
+                        percent: "%"
+                    };
+
+                    history = history + (opMap[this.id] || "");
+                    printHistory(history);
+                    printOutput("");
+                }
+            }
         }
     });
+}
+
+/* NUMBERS */
+let numbers = document.getElementsByClassName("number");
+
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener("click", function () {
+        let output = reverseNumberFormat(getOutput());
+
+        if (!isNaN(output)) {
+            output = output + this.innerText;
+            printOutput(output);
+        }
+    });
+}
+
+/* THEME TOGGLE */
+let toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("change", function () {
+    document.body.classList.toggle("dark");
 });
