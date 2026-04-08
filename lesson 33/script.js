@@ -1,53 +1,40 @@
-let currentInput = "";
-let total = 0;
-let operation = null;
+ /* JS: Logic for Calculations */
+    let currentBalance = 0;
 
-function updateDisplay(value) {
-  document.getElementById("display").innerText = "₹ " + value;
-}
+    function processTransaction(type) {
+        const input = document.getElementById('amountInput');
+        const amount = parseFloat(input.value);
 
-function pressNumber(num) {
-  currentInput += num;
-  updateDisplay(currentInput);
-}
+        // Validation: Check if input is a valid number
+        if (isNaN(amount) || amount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
 
-function setOperation(op) {
-  if (currentInput === "") return;
+        if (type === 'credit') {
+            currentBalance += amount;
+            addToList("Credit", amount, "text-credit");
+        } else if (type === 'debit') {
+            if (amount > currentBalance) {
+                alert("Insufficient funds!");
+                return;
+            }
+            currentBalance -= amount;
+            addToList("Debit", amount, "text-debit");
+        }
 
-  total += parseFloat(currentInput);
-  currentInput = "";
-  operation = op;
+        // Update UI
+        document.getElementById('balance').innerText = `$${currentBalance.toFixed(2)}`;
+        input.value = ""; // Clear input
+    }
 
-  updateDisplay(total);
-}
-
-function calculate() {
-  if (currentInput === "") return;
-
-  if (operation === "+") {
-    total += parseFloat(currentInput);
-  } else if (operation === "-") {
-    total -= parseFloat(currentInput);
-  }
-
-  updateDisplay(total);
-  currentInput = "";
-  operation = null;
-}
-
-function clearAll() {
-  currentInput = "";
-  total = 0;
-  operation = null;
-  updateDisplay(0);
-}
-
-function addExpense() {
-  if (currentInput === "") return;
-
-  let amount = parseFloat(currentInput);
-  alert("Expense Added: ₹ " + amount);
-
-  currentInput = "";
-  updateDisplay(total);
-}
+    function addToList(label, amount, colorClass) {
+        const list = document.getElementById('transactionList');
+        const item = document.createElement('div');
+        item.className = 'transaction';
+        item.innerHTML = `
+            <span>${label}</span>
+            <span class="${colorClass}">${type === 'credit' ? '+' : '-'}$${amount.toFixed(2)}</span>
+        `;
+        list.prepend(item); // Add newest transaction to the top
+    }

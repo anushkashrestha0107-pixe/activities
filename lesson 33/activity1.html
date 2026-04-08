@@ -1,40 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Expense Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heera's Bank App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="calculator">
-  <div class="display" id="display">₹ 0</div>
+<div class="app-container">
+    <h2>Bank Tracker</h2>
+    
+    <div class="balance-card">
+        <p>Current Balance</p>
+        <div id="balance">$0</div>
+    </div>
 
-  <div class="buttons">
-    <button onclick="pressNumber('7')">7</button>
-    <button onclick="pressNumber('8')">8</button>
-    <button onclick="pressNumber('9')">9</button>
-    <button class="operator" onclick="setOperation('+')">+</button>
+    <div class="input-group">
+        <input type="number" id="amountInput" placeholder="Enter amount (e.g. 50)">
+    </div>
 
-    <button onclick="pressNumber('4')">4</button>
-    <button onclick="pressNumber('5')">5</button>
-    <button onclick="pressNumber('6')">6</button>
-    <button class="operator" onclick="setOperation('-')">-</button>
+    <div class="button-group">
+        <button class="btn-credit" onclick="processTransaction('credit')">Credit (+)</button>
+        <button class="btn-debit" onclick="processTransaction('debit')">Debit (-)</button>
+    </div>
 
-    <button onclick="pressNumber('1')">1</button>
-    <button onclick="pressNumber('2')">2</button>
-    <button onclick="pressNumber('3')">3</button>
-    <button class="clear" onclick="clearAll()">C</button>
-
-    <button onclick="pressNumber('0')">0</button>
-    <button onclick="pressNumber('.')">.</button>
-    <button class="equal" onclick="calculate()">=</button>
-    <button class="add-expense" onclick="addExpense()">Add ₹</button>
-  </div>
+    <div class="history">
+        <h4>Recent Transactions</h4>
+        <div id="transactionList"></div>
+    </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-

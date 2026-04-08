@@ -1,70 +1,88 @@
-
-
-
-body {
-  font-family: Arial, sans-serif;
- background: rgb(246, 240, 240);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+body{
+    font-family: 'Open Sans',sans-serif;
+    background-color: black;
 }
 
-.calculator {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  width: 260px;
+#container{
+    width: 1000px;
+    height: 550px;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(bgImg.jpg);
+    margin: 20px auto;
 }
 
-.display {
-  background: #222;
-  color: #eff5f2;
-  font-size: 28px;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: right;
-  margin-bottom: 15px;
+#calculator{
+    width: 320px;
+    height: 520px;
+    background-color: #eaedef;
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 4px 8px 6px rgba(0, 0, 0, 0.2), 6px 20px 6px rgba(0, 0, 0, 0.19);
 }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+#result{
+    height: 120px;
 }
 
-button {
-  padding: 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #e0e0e0;
-  transition: 0.2s;
+#history{
+    text-align: right;
+    height: 20px;
+    margin: 0 20px;
+    padding-top: 20px;
+    font-size: 15px;
+    color: #919191;
 }
 
-button:hover {
-  background: #d4d4d4;
+#output{
+    text-align: right;
+    height: 60px;
+    margin: 10px 20px;
+    font-size: 30px;
 }
 
-.operator {
-  background: #4CAF50;
-  color: white;
+#keyboard{
+    height: 400px;
 }
 
-.equal {
-  background: #2196F3;
-  color: white;
+.operator, .number, .empty{
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    float: left;
+    border-radius: 50%;
+    border-width: 0;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-.clear {
-  background: #f44336;
-  color: white;
+.number, .empty{
+    background-color: #eaedef;
 }
 
-.add-expense {
-  background: #cbc1b1;
-  color: white;
-  grid-column: span 2;
+.number, .operator{
+    cursor: pointer;
 }
+
+ /* CSS: Styling the App */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        .app-container { background: white; width: 350px; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        
+        .balance-card { background: #4a90e2; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
+        #balance { font-size: 2rem; font-weight: bold; }
+
+        .input-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+        
+        .button-group { display: flex; gap: 10px; }
+        button { flex: 1; padding: 12px; border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: bold; transition: opacity 0.2s; }
+        .btn-credit { background-color: #27ae60; }
+        .btn-debit { background-color: #e74c3c; }
+        button:active { opacity: 0.8; }
+
+        .history { margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px; }
+        .history h4 { margin-bottom: 10px; color: #666; }
+        .transaction { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px f7f7f7 solid; font-size: 0.9rem; }
+        .text-credit { color: #27ae60; }
+        .text-debit { color: #e74c3c; }
