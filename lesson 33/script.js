@@ -1,122 +1,53 @@
-    function getHistory() {
-    return document.getElementById("history-value").innerText;
+let currentInput = "";
+let total = 0;
+let operation = null;
+
+function updateDisplay(value) {
+  document.getElementById("display").innerText = "₹ " + value;
 }
 
-function printHistory(num) {
-    document.getElementById("history-value").innerText = num;
+function pressNumber(num) {
+  currentInput += num;
+  updateDisplay(currentInput);
 }
 
-function getOutput() {
-    return document.getElementById("output-value").innerText;
+function setOperation(op) {
+  if (currentInput === "") return;
+
+  total += parseFloat(currentInput);
+  currentInput = "";
+  operation = op;
+
+  updateDisplay(total);
 }
 
-function printOutput(num) {
-    let outputEl = document.getElementById("output-value");
+function calculate() {
+  if (currentInput === "") return;
 
-    if (num == "") {
-        outputEl.innerText = "";
-    } else {
-        outputEl.innerText = getFormattedNumber(num);
-    }
+  if (operation === "+") {
+    total += parseFloat(currentInput);
+  } else if (operation === "-") {
+    total -= parseFloat(currentInput);
+  }
 
-    // Add pop animation
-    outputEl.classList.remove("pop");
-    void outputEl.offsetWidth; // restart animation
-    outputEl.classList.add("pop");
+  updateDisplay(total);
+  currentInput = "";
+  operation = null;
 }
 
-function getFormattedNumber(num) {
-    if (num == "-") return "";
-    return Number(num).toLocaleString("en");
+function clearAll() {
+  currentInput = "";
+  total = 0;
+  operation = null;
+  updateDisplay(0);
 }
 
-function reverseNumberFormat(num) {
-    return Number(num.replace(/,/g, ''));
+function addExpense() {
+  if (currentInput === "") return;
+
+  let amount = parseFloat(currentInput);
+  alert("Expense Added: ₹ " + amount);
+
+  currentInput = "";
+  updateDisplay(total);
 }
-
-/* OPERATORS */
-let operators = document.getElementsByClassName("operator");
-
-for (let i = 0; i < operators.length; i++) {
-    operators[i].addEventListener("click", function () {
-
-        // Button press animation
-        this.style.transform = "scale(0.92)";
-        setTimeout(() => this.style.transform = "", 100);
-
-        if (this.id == "clear") {
-            printHistory("");
-            printOutput("");
-        }
-
-        else if (this.id == "backspace") {
-            let output = reverseNumberFormat(getOutput()).toString();
-            if (output) {
-                output = output.slice(0, -1);
-                printOutput(output);
-            }
-        }
-
-        else {
-            let output = getOutput();
-            let history = getHistory();
-
-            if (output == "" && history != "") {
-                if (isNaN(history[history.length - 1])) {
-                    history = history.slice(0, -1);
-                }
-            }
-
-            if (output != "" || history != "") {
-                output = output == "" ? "" : reverseNumberFormat(output);
-                history = history + output;
-
-                if (this.id == "equals") {
-                    try {
-                        let result = eval(history);
-                        printOutput(result);
-                        printHistory("");
-                    } catch {
-                        printOutput("Error");
-                    }
-                } else {
-                    let opMap = {
-                        plus: "+",
-                        minus: "-",
-                        multiply: "*",
-                        divide: "/",
-                        percent: "%"
-                    };
-
-                    history += opMap[this.id] || "";
-                    printHistory(history);
-                    printOutput("");
-                }
-            }
-        }
-    });
-}
-
-/* NUMBERS */
-let numbers = document.getElementsByClassName("number");
-
-for (let i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener("click", function () {
-
-        this.style.transform = "scale(0.92)";
-        setTimeout(() => this.style.transform = "", 100);
-
-        let output = reverseNumberFormat(getOutput());
-
-        if (!isNaN(output)) {
-            output = output + this.innerText;
-            printOutput(output);
-        }
-    });
-}
-
-/* THEME TOGGLE */
-document.getElementById("theme-toggle")
-    .addEventListener("change", function () {
-        document.body.classList.toggle("dark");
-    });

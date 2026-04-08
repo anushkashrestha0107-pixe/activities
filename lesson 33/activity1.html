@@ -1,67 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleek Glass Calculator</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Expense Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Toggle Switch -->
-<div class="theme-wrapper">
-    <span>☀️</span>
-    <label class="switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider"></span>
-    </label>
-    <span>🌙</span>
-</div>
+<div class="calculator">
+  <div class="display" id="display">₹ 0</div>
 
-<div id="container">
-    <div id="calculator">
+  <div class="buttons">
+    <button onclick="pressNumber('7')">7</button>
+    <button onclick="pressNumber('8')">8</button>
+    <button onclick="pressNumber('9')">9</button>
+    <button class="operator" onclick="setOperation('+')">+</button>
 
-        <div id="result">
-            <div id="history">
-                <p id="history-value"></p>
-            </div>
-            <div id="output">
-                <p id="output-value">0</p>
-            </div>
-        </div>
+    <button onclick="pressNumber('4')">4</button>
+    <button onclick="pressNumber('5')">5</button>
+    <button onclick="pressNumber('6')">6</button>
+    <button class="operator" onclick="setOperation('-')">-</button>
 
-        <div id="keyboard">
-            <button class="operator" id="clear">AC</button>
-            <button class="operator" id="backspace">⌫</button>
-            <button class="operator" id="percent">%</button>
-            <button class="operator" id="divide">÷</button>
+    <button onclick="pressNumber('1')">1</button>
+    <button onclick="pressNumber('2')">2</button>
+    <button onclick="pressNumber('3')">3</button>
+    <button class="clear" onclick="clearAll()">C</button>
 
-            <button class="number" id="seven">7</button>
-            <button class="number" id="eight">8</button>
-            <button class="number" id="nine">9</button>
-            <button class="operator" id="multiply">×</button>
-
-            <button class="number" id="four">4</button>
-            <button class="number" id="five">5</button>
-            <button class="number" id="six">6</button>
-            <button class="operator" id="minus">−</button>
-
-            <button class="number" id="one">1</button>
-            <button class="number" id="two">2</button>
-            <button class="number" id="three">3</button>
-            <button class="operator" id="plus">+</button>
-
-            <button class="number" id="dot">.</button>
-            <button class="number" id="zero">0</button>
-            <button class="empty"></button>
-            <button class="operator" id="equals">=</button>
-        </div>
-
-    </div>
+    <button onclick="pressNumber('0')">0</button>
+    <button onclick="pressNumber('.')">.</button>
+    <button class="equal" onclick="calculate()">=</button>
+    <button class="add-expense" onclick="addExpense()">Add ₹</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
