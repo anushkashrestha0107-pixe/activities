@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heera's Bank App</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS: Styling the App */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        .app-container { background: white; width: 350px; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        
+        .balance-card { background: #4a90e2; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
+        #balance { font-size: 2rem; font-weight: bold; }
+
+        .input-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+        
+        .button-group { display: flex; gap: 10px; }
+        button { flex: 1; padding: 12px; border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: bold; transition: opacity 0.2s; }
+        .btn-credit { background-color: #27ae60; }
+        .btn-debit { background-color: #e74c3c; }
+        button:active { opacity: 0.8; }
+
+        .history { margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px; }
+        .history h4 { margin-bottom: 10px; color: #666; }
+        .transaction { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px f7f7f7 solid; font-size: 0.9rem; }
+        .text-credit { color: #27ae60; }
+        .text-debit { color: #e74c3c; }
+    </style>
 </head>
 <body>
 
@@ -31,6 +54,48 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+    /* JS: Logic for Calculations */
+    let currentBalance = 0;
+
+    function processTransaction(type) {
+        const input = document.getElementById('amountInput');
+        const amount = parseFloat(input.value);
+
+        // Validation: Check if input is a valid number
+        if (isNaN(amount) || amount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
+
+        if (type === 'credit') {
+            currentBalance += amount;
+            addToList("Credit", amount, "text-credit");
+        } else if (type === 'debit') {
+            if (amount > currentBalance) {
+                alert("Insufficient funds!");
+                return;
+            }
+            currentBalance -= amount;
+            addToList("Debit", amount, "text-debit");
+        }
+
+        // Update UI
+        document.getElementById('balance').innerText = `$${currentBalance.toFixed(2)}`;
+        input.value = ""; // Clear input
+    }
+
+    function addToList(label, amount, colorClass) {
+        const list = document.getElementById('transactionList');
+        const item = document.createElement('div');
+        item.className = 'transaction';
+        item.innerHTML = `
+            <span>${label}</span>
+            <span class="${colorClass}">${type === 'credit' ? '+' : '-'}$${amount.toFixed(2)}</span>
+        `;
+        list.prepend(item); // Add newest transaction to the top
+    }
+</script>
+
 </body>
 </html>

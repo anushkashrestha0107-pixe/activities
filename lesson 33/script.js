@@ -1,40 +1,43 @@
- /* JS: Logic for Calculations */
-    let currentBalance = 0;
+ // 1. Initial State
+let balance = 0;
 
-    function processTransaction(type) {
-        const input = document.getElementById('amountInput');
-        const amount = parseFloat(input.value);
+// 2. Select HTML elements
+const balanceDisplay = document.getElementById('balance');
+const amountInput = document.getElementById('amount');
+const list = document.getElementById('transaction-list');
 
-        // Validation: Check if input is a valid number
-        if (isNaN(amount) || amount <= 0) {
-            alert("Please enter a valid amount.");
+// 3. The Core Function
+function updateTransaction(type) {
+    const value = parseFloat(amountInput.value);
+
+    // Validation: Don't process empty or negative numbers
+    if (isNaN(value) || value <= 0) {
+        alert("Please enter a valid amount!");
+        return;
+    }
+
+    if (type === 'credit') {
+        balance += value;
+        logTransaction("Credit", value, "green");
+    } else {
+        // Check if Heera actually has enough money to spend
+        if (value > balance) {
+            alert("Insufficient Funds!");
             return;
         }
-
-        if (type === 'credit') {
-            currentBalance += amount;
-            addToList("Credit", amount, "text-credit");
-        } else if (type === 'debit') {
-            if (amount > currentBalance) {
-                alert("Insufficient funds!");
-                return;
-            }
-            currentBalance -= amount;
-            addToList("Debit", amount, "text-debit");
-        }
-
-        // Update UI
-        document.getElementById('balance').innerText = `$${currentBalance.toFixed(2)}`;
-        input.value = ""; // Clear input
+        balance -= value;
+        logTransaction("Debit", value, "red");
     }
 
-    function addToList(label, amount, colorClass) {
-        const list = document.getElementById('transactionList');
-        const item = document.createElement('div');
-        item.className = 'transaction';
-        item.innerHTML = `
-            <span>${label}</span>
-            <span class="${colorClass}">${type === 'credit' ? '+' : '-'}$${amount.toFixed(2)}</span>
-        `;
-        list.prepend(item); // Add newest transaction to the top
-    }
+    // Update the screen
+    balanceDisplay.innerText = `$${balance.toFixed(2)}`;
+    amountInput.value = ''; // Clear the input field
+}
+
+// 4. Helper to record history
+function logTransaction(name, amt, color) {
+    const item = document.createElement('div');
+    item.className = 'transaction-item';
+    item.innerHTML = `<span>${name}</span> <span style="color:${color}">$${amt}</span>`;
+    list.prepend(item);
+}
